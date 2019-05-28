@@ -1,0 +1,8 @@
+data:
+HG00096_chr1.vcf,HG00096_chr2.vcf,......HG00096_chr22.vcf,HG00096_chrX.vcf(23),3_pre-miRNA-snp.txt
+
+programes: 
+main2_get_snp.pl,1_extract_positon.pl,2_pre_snp.pl,3_extract_snp.pl,4_filter.pl,5_get_num.pl,6_snp_miRNA.pl
+
+
+perl main2_get_snp.pl HG00096
