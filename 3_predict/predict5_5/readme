@@ -1,1 +1,7 @@
-
+step 1:
+Download the small RNA-sequencing data from https://www.ebi.ac.uk/arrayexpress/experiments/E-GEUV-2/samples/.For HG00096 sample,it is named hg00096.fastq
+steip 2:
+#cp 5_pre_miRNA_snp.txt ../IsomiR_Find/3predict/predict5_5
+perl main.pl 5_pre_miRNA_snp.txt result1.txt result2.txt
+step 3:
+perl main1.pl result3.txt hg00096.fastq
