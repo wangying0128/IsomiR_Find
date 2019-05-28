@@ -1,0 +1,36 @@
+1¡¢download file:human_g1k_v37.fasta.gz 
+#../1download wget http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/human_g1k_v37.fasta.gz 
+#tar -xzvf human_g1k_v37.fasta.gz 
+
+Here, we prepare the sample data involving the 1000 genomes and including 23 Chromosome data£¨ALL.chr1.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz£¬......and ALL.chrX.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz£©
+ 
+The execution steps are as follows (take HG00096 as example):
+1 SNP extraction
+setp 1£º
+#/IsomiR_Fing/1download/wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/ALL.chr1.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz
+
+step 2£º
+#gunzip ALL.chr1.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz 
+
+step3£º
+#java -Xmx15g -jar GenomeAnalysisTK.jar -R human_g1k_v37.fasta -T SelectVariants -V ALL.chr1.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf -o HG00096_chr1.vcf -sn HG00096
+
+setp 4£º
+#rm -f ALL.chr1.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz
+#rm -f ALL.chr1.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf
+.......................................................
+The execution of other chromosome data is the same as above£º
+#/IsomiR_Fing/1download/wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/ALL.chr22.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz
+#gunzip ALL.chr22.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz 
+#java -Xmx15g -jar GenomeAnalysisTK.jar -R human_g1k_v37.fasta -T SelectVariants -V ALL.chr22.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf -o HG00096_chr22.vcf -sn HG00096
+#rm -f ALL.chr22.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz
+#rm -f ALL.$chr22.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf
+
+The result data include£ºHG00096_chr1.vcf, HG00096_chr2.vcf.....HG00096_chr22.vcf,HG00096_chrX.vcf
+......................................................................................
+
+step 5:
+#cp HG00096_ch1.vcf ../IsomiR_Find/2get_snp
+#cp HG00096_ch2.vcf ../IsomiR_Find/2get_snp
+#cp HG00096_chX.vcf ../IsomiR_Find/2get_snp
+
